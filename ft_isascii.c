@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmillot <tmillot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/14 18:01:29 by tmillot           #+#    #+#             */
-/*   Updated: 2024/10/15 12:55:28 by tmillot          ###   ########.fr       */
+/*   Created: 2024/10/15 11:50:50 by tmillot           #+#    #+#             */
+/*   Updated: 2024/10/15 13:13:56 by tmillot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+int	ft_isascii(int c)
 {
-	if (c >= '0' && c <= '9')
+	if (c >= 0 && c <= 127)
 		return (1);
 	return (0);
 }
@@ -21,6 +21,6 @@ int	ft_isdigit(int c)
 
 int main(int argc, char **argv)
 {
-	(void)argc;
-	printf("%d", ft_isdigit(argv[1][0]));
+    (void)argc;
+    printf("%d\n", ft_isascii(argv[1][0]));
 }*/
