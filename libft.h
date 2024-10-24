@@ -6,7 +6,7 @@
 /*   By: tmillot <tmillot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 13:51:13 by tmillot           #+#    #+#             */
-/*   Updated: 2024/10/24 15:47:06 by tmillot          ###   ########.fr       */
+/*   Updated: 2024/10/24 19:32:38 by tmillot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <string.h>
 # include <stdlib.h>
+# include <unistd.h>
 
 size_t	ft_strlen(const char *s);
 void	ft_bzero(void *s, size_t n);
