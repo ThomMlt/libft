@@ -6,13 +6,13 @@
 /*   By: tmillot <tmillot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 11:17:22 by tmillot           #+#    #+#             */
-/*   Updated: 2024/10/26 18:57:06 by tmillot          ###   ########.fr       */
+/*   Updated: 2024/10/26 19:10:50 by tmillot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_word(char const *s, char c)
+static int	count_word(char const *s, char c)
 {
 	int	i;
 	int	count;
@@ -33,7 +33,7 @@ int	count_word(char const *s, char c)
 	return (count);
 }
 
-char	*copy_str(char const *s, int start, int end)
+static char	*copy_str(char const *s, int start, int end)
 {
 	char	*str;
 
