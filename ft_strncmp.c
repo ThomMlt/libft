@@ -6,7 +6,7 @@
 /*   By: tmillot <tmillot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 09:52:55 by tmillot           #+#    #+#             */
-/*   Updated: 2024/10/26 15:08:58 by tmillot          ###   ########.fr       */
+/*   Updated: 2024/10/26 19:39:48 by tmillot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 /*int main(int argc, char **argv)
 {
     (void)argc;
-    printf("%d\n", strncmp(argv[1], argv[2], atoi(argv[3])));
     printf("%d", ft_strncmp(argv[1], argv[2], atoi(argv[3])));
 }*/

@@ -6,13 +6,15 @@
 /*   By: tmillot <tmillot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 11:17:22 by tmillot           #+#    #+#             */
-/*   Updated: 2024/10/26 19:10:50 by tmillot          ###   ########.fr       */
+/*   Updated: 2024/10/26 19:45:09 by tmillot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count_word(char const *s, char c)
+#include "libft.h"
+
+static int	count_word(const char *s, char c)
 {
 	int	i;
 	int	count;
@@ -21,11 +23,11 @@ static int	count_word(char const *s, char c)
 	count = 0;
 	while (s[i] != '\0')
 	{
-		while (s[i] == c && s[i] != '\0')
+		while (s[i] == c)
 			i++;
-		if (s[i] != c && s[i] != '\0')
+		if (s[i] != '\0' && s[i] != c)
 		{
-			while (s[i] != c && s[i] != '\0')
+			while (s[i] != '\0' && s[i] != c)
 				i++;
 			count++;
 		}
@@ -33,7 +35,7 @@ static int	count_word(char const *s, char c)
 	return (count);
 }
 
-static char	*copy_str(char const *s, int start, int end)
+static char	*copy_str(const char *s, int start, int end)
 {
 	char	*str;
 
@@ -41,31 +43,56 @@ static char	*copy_str(char const *s, int start, int end)
 	return (str);
 }
 
-char	**ft_split(char const *s, char c)
+static void	free_tab(char **tab, int y)
 {
-	char	**tab;
-	int		start;
-	int		end;
-	int		i;
-	int		y;
+	while (y >= 0)
+	{
+		free(tab[y]);
+		y--;
+	}
+	free(tab);
+}
+
+static int	ft_copy_str_tab(char **tab, const char *s, char c, int start)
+{
+	int	i;
+	int	y;
 
 	i = 0;
 	y = 0;
-	tab = malloc((count_word(s, c) + 1) * sizeof(char *));
-	if (!tab)
-		return (0);
 	while (s[i] != '\0')
 	{
 		while (s[i] == c)
 			i++;
 		start = i;
-		while (s[i] != c && s[i] != '\0')
+		while (s[i] != '\0' && s[i] != c)
 			i++;
-		end = i;
-		if (end > start)
-			tab[y++] = copy_str(s, start, end);
+		if (i > start)
+		{
+			tab[y] = copy_str(s, start, i);
+			if (!tab[y])
+			{
+				free_tab(tab, y - 1);
+				return (0);
+			}
+			y++;
+		}
 	}
 	tab[y] = NULL;
+	return (1);
+}
+
+char	**ft_split(const char *s, char c)
+{
+	char	**tab;
+
+	if (!s)
+		return (NULL);
+	tab = malloc((count_word(s, c) + 1) * sizeof(char *));
+	if (!tab)
+		return (NULL);
+	if (!ft_copy_str_tab(tab, s, c, 0))
+		return (NULL);
 	return (tab);
 }
 
