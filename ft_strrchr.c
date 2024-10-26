@@ -6,7 +6,7 @@
 /*   By: tmillot <tmillot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 10:27:27 by tmillot           #+#    #+#             */
-/*   Updated: 2024/10/21 10:27:37 by tmillot          ###   ########.fr       */
+/*   Updated: 2024/10/26 15:00:23 by tmillot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@ char	*ft_strrchr(const char *s, int c)
 	int	len;
 
 	len = ft_strlen(s);
-	len--;
-	while (s[len] != c)
+	while (s[len] != (char)c && len >= 0)
 		len--;
-	if (s[len] == c)
+	if (s[len] == (char)c)
 		return ((char *)&s[len]);
 	return (NULL);
 }

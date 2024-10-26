@@ -6,7 +6,7 @@
 #    By: tmillot <tmillot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/24 20:55:23 by tmillot           #+#    #+#              #
-#    Updated: 2024/10/26 11:40:26 by tmillot          ###   ########.fr        #
+#    Updated: 2024/10/26 17:15:11 by tmillot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ NAME = libft.a
 all: ${NAME}
 
 ${NAME}: ${OBJS}
-	er rcs ${NAME} ${OBJS}
+	ar rcs ${NAME} ${OBJS}
 
 %.o: %.c
 	${CC} ${CFLAGS} -c $< -o $@

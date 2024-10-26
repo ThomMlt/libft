@@ -6,7 +6,7 @@
 /*   By: tmillot <tmillot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:05:04 by tmillot           #+#    #+#             */
-/*   Updated: 2024/10/24 14:05:19 by tmillot          ###   ########.fr       */
+/*   Updated: 2024/10/26 14:46:53 by tmillot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,30 +32,27 @@ char	*ft_itoa(int n)
 	char	*str;
 	int		len;
 	long	nbr;
-	int		sign;
 
-	sign = 1;
 	nbr = n;
 	len = count_nbr(nbr);
-	str = malloc((len + 1) * sizeof(char *));
+	str = malloc((len + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
 	if (nbr < 0)
 	{
 		nbr *= -1;
-		sign *= -1;
+		str[0] = '-';
 	}
-	while (len-- > 0)
+	str[len] = '\0';
+	while (--len >= (n < 0))
 	{
 		str[len] = (nbr % 10) + '0';
 		nbr = nbr / 10;
 	}
-	if (sign < 0)
-		str[0] = '-';
 	return (str);
 }
 
 /*int main(void)
 {
-	printf("%s", ft_itoa(-2147483648));
+	printf("%s", ft_itoa(2147483647));
 }*/
