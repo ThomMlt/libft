@@ -6,13 +6,13 @@
 /*   By: tmillot <tmillot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 13:28:41 by tmillot           #+#    #+#             */
-/*   Updated: 2024/10/26 17:57:31 by tmillot          ###   ########.fr       */
+/*   Updated: 2024/10/27 08:40:01 by tmillot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+static char	*ft_strcat(char *dest, const char *src)
 {
 	int	i;
 	int	length_dest;

@@ -6,7 +6,7 @@
 #    By: tmillot <tmillot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/24 20:55:23 by tmillot           #+#    #+#              #
-#    Updated: 2024/10/26 17:15:11 by tmillot          ###   ########.fr        #
+#    Updated: 2024/10/27 15:29:48 by tmillot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,19 @@ SRCS = ft_atoi.c \
 		ft_tolower.c \
 		ft_toupper.c \
 
+BONUS = ft_lstnew_bonus.c \
+			ft_lstadd_front_bonus.c \
+			ft_lstsize_bonus.c \
+			ft_lstlast_bonus.c \
+			ft_lstadd_back_bonus.c \
+			ft_lstdelone_bonus.c \
+			ft_lstclear_bonus.c \
+			ft_lstiter_bonus.c \
+			ft_lstmap_bonus.c \
+
 OBJS = ${SRCS:.c=.o}
+
+BONUS_OBJS = ${BONUS:.c=.o}
 
 CC = cc
 
@@ -57,6 +69,9 @@ all: ${NAME}
 
 ${NAME}: ${OBJS}
 	ar rcs ${NAME} ${OBJS}
+
+bonus: ${OBJS} ${BONUS_OBJS}
+		ar rcs ${NAME} ${OBJS} ${BONUS_OBJS}
 
 %.o: %.c
 	${CC} ${CFLAGS} -c $< -o $@
